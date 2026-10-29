@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { cn } from '@/lib/utils'
 
 export function ScaledFrame({
   src,
@@ -59,10 +60,15 @@ export function DesktopPreview({ src, title }: { src: string; title: string }) {
   )
 }
 
-export function MobilePreview({ src, title }: { src: string; title: string }) {
+export function MobilePreview({ src, title, compact = false }: { src: string; title: string; compact?: boolean }) {
   return (
-    <div className="mx-auto w-full max-w-72 rounded-[2.5rem] border border-border bg-frame p-2.5">
-      <div className="overflow-hidden rounded-[2rem]">
+    <div
+      className={cn(
+        'mx-auto w-full max-w-72 border border-border bg-frame',
+        compact ? 'rounded-2xl p-1' : 'rounded-[2.5rem] p-2.5',
+      )}
+    >
+      <div className={cn('overflow-hidden', compact ? 'rounded-xl' : 'rounded-[2rem]')}>
         <ScaledFrame src={src} title={`${title} — mobile`} width={390} height={844} />
       </div>
     </div>
