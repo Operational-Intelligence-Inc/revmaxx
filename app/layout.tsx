@@ -1,11 +1,12 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono, Source_Serif_4 } from 'next/font/google'
+import { Inter, JetBrains_Mono, Source_Serif_4, Unbounded } from 'next/font/google'
 import './globals.css'
 
 const _inter = Inter({ subsets: ['latin'] })
 const _sourceSerif = Source_Serif_4({ subsets: ['latin'] })
 const _jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
+const unbounded = Unbounded({ subsets: ['latin'], weight: ['800', '900'], variable: '--font-unbounded' })
 
 export const metadata: Metadata = {
   title: 'Chat Mockup — Sponsored Insurance Quote',
@@ -42,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en" className={`${unbounded.variable} bg-background`}>
       <body className="antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

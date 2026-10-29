@@ -9,6 +9,15 @@
   --font-serif: 'Source Serif 4', 'Source Serif 4 Fallback', ui-serif, Georgia, serif;
   --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', ui-monospace, SFMono-Regular, Menlo, monospace;
 
+  --font-display: var(--font-unbounded), 'Unbounded Fallback', ui-sans-serif, system-ui, sans-serif;
+
+  --color-code: var(--code);
+  --color-code-foreground: var(--code-foreground);
+  --color-frame: var(--frame);
+  --color-pop: var(--pop);
+  --color-pop-2: var(--pop-2);
+  --color-pop-3: var(--pop-3);
+
   --color-terminal: var(--terminal);
   --color-terminal-foreground: var(--terminal-foreground);
   --color-terminal-muted: var(--terminal-muted);
@@ -112,6 +121,192 @@
   --aiko-brand: #b83a6e;
   --aiko-accent: #e0568a;
   --aiko-success: #138a5b;
+}
+
+/* Landing concept themes. Each scopes the shadcn tokens to one concept. */
+.theme-gallery {
+  color-scheme: dark;
+  --background: #161618;
+  --foreground: #f4f4f5;
+  --card: #1f1f22;
+  --card-foreground: #f4f4f5;
+  --muted: #26262a;
+  --muted-foreground: #a1a1aa;
+  --primary: #f4f4f5;
+  --primary-foreground: #161618;
+  --border: #2e2e33;
+  --frame: #0c0c0d;
+}
+
+.theme-infra {
+  --background: #ffffff;
+  --foreground: #0b1220;
+  --card: #ffffff;
+  --card-foreground: #0b1220;
+  --muted: #f2f4f8;
+  --muted-foreground: #5b6475;
+  --primary: #2552ff;
+  --primary-foreground: #ffffff;
+  --accent: #e8edff;
+  --accent-foreground: #1a3bd1;
+  --border: #e3e7ee;
+  --input: #d7dce5;
+  --ring: #2552ff;
+  --code: #0b1220;
+  --code-foreground: #d6def0;
+}
+
+.theme-convo {
+  --background: #eceff3;
+  --foreground: #14171c;
+  --card: #ffffff;
+  --card-foreground: #14171c;
+  --muted: #e2e6ec;
+  --muted-foreground: #5c6470;
+  --primary: #0e7a5f;
+  --primary-foreground: #ffffff;
+  --accent: #dcefe8;
+  --accent-foreground: #0b5c48;
+  --border: #d6dbe2;
+  --input: #cbd1da;
+  --ring: #0e7a5f;
+}
+
+.theme-market {
+  --background: #f6f6f4;
+  --foreground: #121a2b;
+  --card: #ffffff;
+  --card-foreground: #121a2b;
+  --muted: #ebebe7;
+  --muted-foreground: #5f6676;
+  --primary: #1b2b52;
+  --primary-foreground: #ffffff;
+  --accent: #ffb547;
+  --accent-foreground: #121a2b;
+  --border: #dedcd5;
+  --input: #d2d0c8;
+  --ring: #1b2b52;
+}
+
+.theme-terminal {
+  color-scheme: dark;
+  --background: #11131a;
+  --foreground: #d8dbe3;
+  --card: #181b24;
+  --card-foreground: #d8dbe3;
+  --muted: #1f2330;
+  --muted-foreground: #8089a0;
+  --primary: #8fb0ff;
+  --primary-foreground: #11131a;
+  --accent: #e7b56a;
+  --accent-foreground: #11131a;
+  --border: #272c3a;
+  --input: #2f3545;
+  --ring: #8fb0ff;
+}
+
+.theme-poster {
+  --background: #f9bd2b;
+  --foreground: #111111;
+  --card: #fffaf0;
+  --card-foreground: #111111;
+  --muted: #f3ad12;
+  --muted-foreground: #3d3415;
+  --primary: #111111;
+  --primary-foreground: #f9bd2b;
+  --accent: #fffaf0;
+  --accent-foreground: #111111;
+  --border: #111111;
+  --input: #111111;
+  --ring: #111111;
+}
+
+/* v6 — fintech ledger: mint, navy, teal */
+.theme-ledger {
+  --background: #f2f7f7;
+  --foreground: #0b2f3f;
+  --card: #ffffff;
+  --card-foreground: #0b2f3f;
+  --muted: #e8f1f1;
+  --muted-foreground: #5f7780;
+  --primary: #2a8b93;
+  --primary-foreground: #ffffff;
+  --accent: #0b2f3f;
+  --accent-foreground: #e8f1f1;
+  --border: #dbe8e8;
+  --input: #d0e0e0;
+  --ring: #2a8b93;
+}
+
+/* v7 — collage: indigo night, yellow, red, violet */
+.theme-collage {
+  color-scheme: dark;
+  --background: #1d1b4c;
+  --foreground: #ffffff;
+  --card: #2b2963;
+  --card-foreground: #ffffff;
+  --muted: #2b2963;
+  --muted-foreground: #c9c7ee;
+  --primary: #ffffff;
+  --primary-foreground: #1d1b4c;
+  --border: #3a3878;
+  --ring: #f5c233;
+  --pop: #f5c233;
+  --pop-2: #f2514f;
+  --pop-3: #6c4cf1;
+}
+
+/* v8 — creator commerce: white, ink, pastel cards */
+.theme-reel {
+  --background: #ffffff;
+  --foreground: #161616;
+  --card: #ffffff;
+  --card-foreground: #161616;
+  --muted: #f5f4f1;
+  --muted-foreground: #5d5d5d;
+  --primary: #161616;
+  --primary-foreground: #ffffff;
+  --border: #e6e4df;
+  --ring: #161616;
+  --pop: #fbe07a;
+  --pop-2: #bdf0b4;
+  --pop-3: #f7c6f1;
+}
+
+/* v9 — live AI: blush card, violet→orange */
+.theme-livo {
+  --background: #fff1ef;
+  --foreground: #121212;
+  --card: #ffffff;
+  --card-foreground: #121212;
+  --muted: #fbe4e0;
+  --muted-foreground: #5f5552;
+  --primary: #121212;
+  --primary-foreground: #ffffff;
+  --border: #f0d6d1;
+  --ring: #8b3fd9;
+  --pop: #8b3fd9;
+  --pop-2: #f08a4b;
+  --frame: #ffffff;
+}
+
+/* v10 — editorial grow: white, fog gray, ink, orange */
+.theme-grow {
+  --background: #ffffff;
+  --foreground: #121212;
+  --card: #ffffff;
+  --card-foreground: #121212;
+  --muted: #e4e4e4;
+  --muted-foreground: #565656;
+  --primary: #121212;
+  --primary-foreground: #ffffff;
+  --border: #d9d9d9;
+  --ring: #121212;
+  --pop: #f26b3a;
+}
+
+.grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 @layer base {
