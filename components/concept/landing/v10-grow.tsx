@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import { ArrowUpRight, CalendarCheck, Check, ChevronDown, Link2, Quote } from 'lucide-react'
+import { ArrowUpRight, CalendarCheck, Check, Link2 } from 'lucide-react'
 import { InChatDemo, TEAM } from './shared'
+import { V10ApplyForm } from './v10-apply-form'
 
 const SUPPLY = ['Research agents', 'Shopping assistants', 'MCP skills', 'Harnesses', 'Copilots']
 
@@ -60,15 +61,6 @@ function Hero() {
         <p className="text-2xl leading-snug text-muted-foreground text-pretty">
           Links are worth cents. Leads are worth hundreds. Turn commercial intent in your AI into booked meetings.
         </p>
-        <div className="flex items-center gap-4">
-          <span className="flex size-12 items-center justify-center rounded-full bg-card" aria-hidden="true">
-            <Quote className="size-5" />
-          </span>
-          <p className="flex flex-col">
-            <span className="text-lg font-medium">Built by lead-gen operators</span>
-            <span className="text-sm text-muted-foreground">Ju runs an 8-figure performance business</span>
-          </p>
-        </div>
         <hr className="border-foreground/15" />
         <div className="flex flex-wrap gap-3">
           <a href="#cta" className="rounded-full bg-primary px-6 py-3.5 text-primary-foreground">
@@ -322,14 +314,7 @@ function Cta() {
             Advertiser demand is ready to spend. We&apos;re onboarding a small group of AI apps first — and they keep 90%.
           </p>
         </div>
-        <div className="flex flex-wrap gap-3">
-          <a href="#" className="rounded-full bg-pop px-6 py-3.5 text-primary-foreground">
-            Apply — it&apos;s free
-          </a>
-          <a href="#how" className="flex items-center gap-1 rounded-full border border-primary-foreground/30 px-6 py-3.5">
-            How it works <ArrowUpRight className="size-4" aria-hidden="true" />
-          </a>
-        </div>
+        <V10ApplyForm />
       </div>
     </section>
   )
@@ -340,21 +325,9 @@ export function V10Grow() {
     <div className="theme-grow min-h-screen bg-background font-sans text-foreground">
       <header className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-6 md:px-10">
         <Logo />
-        <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
-          {['Product', 'Builders', 'Advertisers', 'Developers'].map((n) => (
-            <a key={n} href="#" className="flex items-center gap-1">
-              {n} <ChevronDown className="size-4" aria-hidden="true" />
-            </a>
-          ))}
-        </nav>
-        <div className="flex gap-2">
-          <a href="#" className="hidden rounded-full border border-border px-5 py-2.5 md:inline-flex">
-            Log in
-          </a>
-          <a href="#cta" className="rounded-full bg-primary px-5 py-2.5 text-sm text-primary-foreground md:text-base">
-            Apply — it&apos;s free
-          </a>
-        </div>
+        <a href="#cta" className="rounded-full bg-primary px-5 py-2.5 text-sm text-primary-foreground md:text-base">
+          Apply — it&apos;s free
+        </a>
       </header>
 
       <main className="px-3 md:px-6">
