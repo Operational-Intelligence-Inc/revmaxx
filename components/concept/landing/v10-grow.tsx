@@ -62,12 +62,9 @@ function Hero() {
           Links are worth cents. Leads are worth hundreds. Turn commercial intent in your AI into booked meetings.
         </p>
         <hr className="border-foreground/15" />
-        <div className="flex flex-wrap gap-3">
-          <a href="#cta" className="rounded-full bg-primary px-6 py-3.5 text-primary-foreground">
-            Become a design partner
-          </a>
-          <a href="#goals" className="rounded-full border border-border bg-card px-6 py-3.5">
-            For advertisers
+        <div>
+          <a href="#cta" className="inline-block rounded-full bg-primary px-6 py-3.5 text-primary-foreground">
+            Get Started
           </a>
         </div>
       </div>
@@ -303,16 +300,9 @@ function Cta() {
     <section id="cta" className="mx-auto max-w-7xl pb-6">
       <div className="flex flex-col gap-10 rounded-[2rem] bg-primary px-5 py-14 text-primary-foreground md:flex-row md:items-end md:justify-between md:px-14 md:py-20">
         <div className="flex flex-col gap-6">
-          <p className="flex items-center gap-2 text-sm font-medium">
-            <span className="size-2 rounded-full bg-pop" aria-hidden="true" />
-            Design partners
-          </p>
-          <h2 className="font-serif text-7xl font-black leading-none tracking-tight md:text-9xl">
-            Earn<sup className="ml-1 align-super text-5xl font-light md:text-6xl">+</sup>
+          <h2 className="font-serif text-6xl font-black leading-none tracking-tight text-balance md:text-8xl">
+            Book a call
           </h2>
-          <p className="max-w-md text-lg leading-relaxed text-primary-foreground/70">
-            Advertiser demand is ready to spend. We&apos;re onboarding a small group of AI apps first — and they keep 90%.
-          </p>
         </div>
         <V10ApplyForm />
       </div>
@@ -326,7 +316,7 @@ export function V10Grow() {
       <header className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-6 md:px-10">
         <Logo />
         <a href="#cta" className="rounded-full bg-primary px-5 py-2.5 text-sm text-primary-foreground md:text-base">
-          Apply — it&apos;s free
+          Get Started
         </a>
       </header>
 
