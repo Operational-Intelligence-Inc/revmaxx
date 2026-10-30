@@ -1,13 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
 import { Check } from 'lucide-react'
+import { sendContactMessage } from '@/app/actions/contact'
 
 const FIELD =
   'w-full border border-primary-foreground/30 bg-transparent px-5 py-3.5 text-primary-foreground placeholder:text-primary-foreground/50 focus:border-pop focus:outline-none focus-visible:ring-2 focus-visible:ring-pop'
 
 export function V10ApplyForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [isPending, startTransition] = useTransition()
 
   if (submitted) {
     return (
@@ -24,7 +27,13 @@ export function V10ApplyForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault()
-        setSubmitted(true)
+        const formData = new FormData(e.currentTarget)
+        setError(null)
+        startTransition(async () => {
+          const result = await sendContactMessage(formData)
+          if (result.ok) setSubmitted(true)
+          else setError(result.error)
+        })
       }}
       className="flex w-full max-w-md flex-col gap-3"
     >
@@ -62,8 +71,17 @@ export function V10ApplyForm() {
         placeholder="Message"
         className={`${FIELD} resize-none rounded-3xl`}
       />
-      <button type="submit" className="rounded-full bg-pop px-6 py-3.5 font-medium text-primary-foreground">
-        Book a call
+      {error && (
+        <p role="alert" className="text-sm text-primary-foreground">
+          {error}
+        </p>
+      )}
+      <button
+        type="submit"
+        disabled={isPending}
+        className="rounded-full bg-pop px-6 py-3.5 font-medium text-primary-foreground disabled:opacity-70"
+      >
+        {isPending ? 'Sending…' : 'Book a call'}
       </button>
     </form>
   )
