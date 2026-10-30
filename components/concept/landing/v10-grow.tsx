@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ArrowUpRight, CalendarCheck, Check, ChevronDown, Link2, Play, Quote } from 'lucide-react'
+import { ArrowUpRight, CalendarCheck, Check, ChevronDown, Link2, Quote } from 'lucide-react'
 import { InChatDemo, TEAM } from './shared'
 
 const SUPPLY = ['Research agents', 'Shopping assistants', 'MCP skills', 'Harnesses', 'Copilots']
@@ -90,10 +90,7 @@ function Hero() {
             className="aspect-[4/5] w-full object-cover"
             priority
           />
-          <span className="absolute left-1/2 top-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-card shadow-lg">
-            <Play className="size-5 fill-foreground" aria-hidden="true" />
-            <span className="sr-only">Play product video</span>
-          </span>
+
         </div>
 
         <div className="absolute -left-2 top-[22%] flex flex-col items-start gap-2 md:-left-16">
