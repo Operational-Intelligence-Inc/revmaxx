@@ -106,7 +106,7 @@ export const LANDING_VERSIONS: LandingVersion[] = [
     slug: 'v10',
     name: 'Editorial Earn+',
     headline: 'Earn+',
-    direction: 'Huge serif one-word hero on a fog-gray panel, editorial photo with glass payout and booking cards.',
+    direction: 'Huge serif one-word hero on a fog-gray panel, editorial founder photo with glass payout and booking cards, then demo, cents-vs-hundreds math, advertiser goals, steps, team and CTA.',
     inspiration: 'Reference screenshot 5 (Reeloo "Grow+").',
     palette: ['#ffffff', '#e4e4e4', '#121212', '#f26b3a'],
     Component: V10Grow,
