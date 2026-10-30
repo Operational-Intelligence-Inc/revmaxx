@@ -4,6 +4,12 @@ import nodemailer from 'nodemailer'
 
 export type ContactResult = { ok: true } | { ok: false; error: string }
 
+const CONTACT_RECIPIENTS = [
+  'Patrizio0512@gmail.com',
+  'yulinyan1995@gmail.com',
+  'lijulijuliju@gmail.com',
+]
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function escapeHtml(value: string) {
@@ -47,12 +53,10 @@ export async function sendContactMessage(formData: FormData): Promise<ContactRes
     auth: { user, pass },
   })
 
-  const recipient = process.env.CONTACT_TO_EMAIL || user
-
   try {
     await transporter.sendMail({
       from: `"Website inquiry" <${user}>`,
-      to: recipient,
+      to: CONTACT_RECIPIENTS,
       replyTo: `"${name.replace(/"/g, '')}" <${email}>`,
       subject: `Book a call: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message || '(no message)'}`,
