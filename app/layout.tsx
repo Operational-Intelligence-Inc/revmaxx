@@ -9,9 +9,9 @@ const _jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 const unbounded = Unbounded({ subsets: ['latin'], weight: ['800', '900'], variable: '--font-unbounded' })
 
 export const metadata: Metadata = {
-  title: 'Chat Mockup — Sponsored Insurance Quote',
+  title: 'RevMaxx — The ad network for AI agents',
   description:
-    'A mock AI chat interface demonstrating a car insurance analysis with a sponsored quote-request lead form.',
+    'RevMaxx turns commercial intent in AI conversations into booked meetings, with 90% of every dollar going to builders.',
   generator: 'v0.app',
   icons: {
     icon: [
