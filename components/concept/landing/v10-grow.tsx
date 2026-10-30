@@ -66,7 +66,7 @@ function Hero() {
           </span>
           <p className="flex flex-col">
             <span className="text-lg font-medium">Built by lead-gen operators</span>
-            <span className="text-sm text-muted-foreground">Ju runs a $50M/yr performance business</span>
+            <span className="text-sm text-muted-foreground">Ju runs an 8-figure performance business</span>
           </p>
         </div>
         <hr className="border-foreground/15" />

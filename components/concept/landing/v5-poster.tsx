@@ -68,7 +68,7 @@ export function V5Poster() {
                   '"I\'ve seen how collecting just a few key pieces of information can make a lead worth hundreds of dollars."'
                 }
               </p>
-              <footer className="font-mono text-sm opacity-80">Ju, co-founder · runs a $50M/yr lead-gen business</footer>
+              <footer className="font-mono text-sm opacity-80">Ju, co-founder · runs an 8-figure lead-gen business</footer>
             </blockquote>
             <div className="theme-poster rounded-2xl bg-transparent">
               <InChatDemo />

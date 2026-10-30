@@ -15,7 +15,7 @@ export const TEAM = [
   {
     name: 'Ju',
     role: 'Advertiser demand',
-    bio: 'Runs a performance-marketing and lead-gen business doing $50M a year.',
+    bio: 'Runs an 8-figure performance-marketing and lead-gen business.',
   },
 ] as const
 
