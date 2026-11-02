@@ -89,6 +89,7 @@ export function BookingForm({
   shareContext = false,
   agentName = 'Claude',
   poweredBy,
+  framed = false,
 }: {
   onResolve: (result: BookingResult) => void
   onAdvance: () => void
@@ -96,6 +97,7 @@ export function BookingForm({
   shareContext?: boolean
   agentName?: string
   poweredBy?: string
+  framed?: boolean
 }) {
   const questions = shareContext ? [...QUESTIONS, CONTEXT_QUESTION] : QUESTIONS
   const [phase, setPhase] = useState<Phase>('offer')
@@ -140,7 +142,10 @@ export function BookingForm({
   return (
     <section
       aria-label="Sponsored by PostHog: book an intro call"
-      className="flex flex-col gap-4 border-t border-sponsor pt-3"
+      className={cn(
+        'flex flex-col gap-4',
+        framed ? 'rounded-md border border-sponsor-frame px-4 py-3' : 'border-t border-sponsor pt-3',
+      )}
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-sponsor">
