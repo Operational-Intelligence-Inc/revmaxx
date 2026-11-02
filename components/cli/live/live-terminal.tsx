@@ -57,6 +57,7 @@ export function LiveTerminal() {
     footer = (
       <PromptInput
         autoFocus
+        agentName="opencode"
         initialValue={DEFAULT_PROMPT}
         hint="Enter to send"
         onSubmit={(text) => {
@@ -76,8 +77,8 @@ export function LiveTerminal() {
   }
 
   return (
-    <TerminalChrome footer={footer}>
-      <Welcome />
+    <TerminalChrome footer={footer} agentCommand="opencode">
+      <Welcome productName="opencode" />
 
       {phase !== 'idle' && (
         <div className="flex flex-col gap-5">
@@ -125,6 +126,7 @@ export function LiveTerminal() {
             <BookingForm
               offerOptions={OFFER_OPTIONS}
               shareContext
+              agentName="opencode"
               onAdvance={scrollToBottom}
               onResolve={(result) => {
                 setBooking(result)
@@ -158,6 +160,7 @@ export function LiveTerminal() {
 
       {workFinished && booking && (
         <PromptInput
+          agentName="opencode"
           onSubmit={(text) => {
             setFollowUps((prev) => [...prev, text])
             scrollToBottom()

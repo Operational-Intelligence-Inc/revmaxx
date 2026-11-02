@@ -21,12 +21,12 @@ const OPTIONS = [
   },
 ]
 
-export function Welcome() {
+export function Welcome({ productName = 'Claude Code' }: { productName?: string }) {
   return (
     <div className="flex w-full max-w-xl flex-col gap-3 rounded-md border border-terminal-accent px-4 py-3">
       <p>
         <span className="text-terminal-accent">{'*'}</span>{' '}
-        <span className="font-bold">Welcome to Claude Code!</span>
+        <span className="font-bold">{`Welcome to ${productName}!`}</span>
       </p>
       <div className="flex flex-col pl-[2ch] text-terminal-muted">
         <p>/help for help, /status for your current setup</p>

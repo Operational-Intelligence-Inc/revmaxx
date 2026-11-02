@@ -87,11 +87,13 @@ export function BookingForm({
   onAdvance,
   offerOptions = OFFER_OPTIONS,
   shareContext = false,
+  agentName = 'Claude',
 }: {
   onResolve: (result: BookingResult) => void
   onAdvance: () => void
   offerOptions?: Option[]
   shareContext?: boolean
+  agentName?: string
 }) {
   const questions = shareContext ? [...QUESTIONS, CONTEXT_QUESTION] : QUESTIONS
   const [phase, setPhase] = useState<Phase>('offer')
@@ -143,7 +145,7 @@ export function BookingForm({
           <span className="font-bold">Sponsored</span>
           {' · PostHog'}
         </p>
-        <p className="text-terminal-muted">Paid placement · not part of Claude&apos;s recommendation</p>
+        <p className="text-terminal-muted">{`Paid placement · not part of ${agentName}'s recommendation`}</p>
       </div>
 
       {phase === 'offer' && (

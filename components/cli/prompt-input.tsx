@@ -7,11 +7,13 @@ export function PromptInput({
   initialValue = '',
   autoFocus = false,
   hint = '? for shortcuts',
+  agentName = 'Claude',
 }: {
   onSubmit: (text: string) => void
   initialValue?: string
   autoFocus?: boolean
   hint?: string
+  agentName?: string
 }) {
   const [text, setText] = useState(initialValue)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -40,7 +42,7 @@ export function PromptInput({
           {'>'}
         </span>
         <label htmlFor="cli-prompt" className="sr-only">
-          Message Claude
+          {`Message ${agentName}`}
         </label>
         <input
           ref={inputRef}
