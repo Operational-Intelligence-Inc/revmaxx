@@ -67,9 +67,11 @@ type Phase = 'offer' | 'lookup' | 'slot' | 'questions'
 export function BookingForm({
   onResolve,
   onAdvance,
+  offerOptions = OFFER_OPTIONS,
 }: {
   onResolve: (result: BookingResult) => void
   onAdvance: () => void
+  offerOptions?: Option[]
 }) {
   const [phase, setPhase] = useState<Phase>('offer')
   const [lookupStep, setLookupStep] = useState(0)
@@ -135,7 +137,7 @@ export function BookingForm({
           </div>
           <OptionList
             label="Book an intro call with PostHog?"
-            options={OFFER_OPTIONS}
+            options={offerOptions}
             onSelect={(i) => {
               if (i === 0) {
                 setPhase('lookup')

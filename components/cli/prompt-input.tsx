@@ -1,9 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-export function PromptInput({ onSubmit }: { onSubmit: (text: string) => void }) {
-  const [text, setText] = useState('')
+export function PromptInput({
+  onSubmit,
+  initialValue = '',
+  autoFocus = false,
+  hint = '? for shortcuts',
+}: {
+  onSubmit: (text: string) => void
+  initialValue?: string
+  autoFocus?: boolean
+  hint?: string
+}) {
+  const [text, setText] = useState(initialValue)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (!autoFocus) return
+    const el = inputRef.current
+    if (!el) return
+    el.focus({ preventScroll: true })
+    el.setSelectionRange(el.value.length, el.value.length)
+  }, [autoFocus])
 
   return (
     <div className="flex flex-col gap-1">
@@ -24,6 +43,7 @@ export function PromptInput({ onSubmit }: { onSubmit: (text: string) => void }) 
           Message Claude
         </label>
         <input
+          ref={inputRef}
           id="cli-prompt"
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -37,7 +57,7 @@ export function PromptInput({ onSubmit }: { onSubmit: (text: string) => void }) 
         />
       </form>
       <div className="flex justify-between px-3 text-terminal-muted">
-        <span>? for shortcuts</span>
+        <span>{hint}</span>
         <span className="hidden sm:inline">~/code/acme-web</span>
       </div>
     </div>
