@@ -127,6 +127,7 @@ export function LiveTerminal() {
               offerOptions={OFFER_OPTIONS}
               shareContext
               agentName="opencode"
+              poweredBy="RevMaxx"
               onAdvance={scrollToBottom}
               onResolve={(result) => {
                 setBooking(result)
