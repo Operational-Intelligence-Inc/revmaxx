@@ -157,7 +157,7 @@ export function BookingForm({
           {poweredBy && (
             <>
               {' · '}
-              <span className="text-terminal-foreground">{`Powered by ${poweredBy}`}</span>
+              <span className="text-lg font-bold text-sponsor-frame">{`Powered by ${poweredBy}`}</span>
             </>
           )}
         </p>
