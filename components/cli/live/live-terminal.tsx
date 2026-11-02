@@ -13,12 +13,13 @@ import { BusyStatus, DoneStatus } from './status-bar'
 import { ToolChoice } from './tool-choice'
 import { WORK_DURATIONS, WORK_STEPS, WorkLog } from './work-log'
 
-const DEFAULT_PROMPT = 'add analytics to my site so I can see what users are actually doing'
+const DEFAULT_PROMPT = "I would like to add analytics to my project. What's a good fit?"
 
 const OFFER_OPTIONS = [
   {
     label: 'Yes, find a time',
-    description: 'Checks free/busy on your Google Calendar. Event details are never read.',
+    description:
+      'Uses the Google Calendar already connected to this session to find times that work. Event details are never read.',
   },
   { label: 'Not now', description: 'Keep waiting for the PostHog setup' },
 ]
@@ -123,6 +124,7 @@ export function LiveTerminal() {
           ) : (
             <BookingForm
               offerOptions={OFFER_OPTIONS}
+              shareContext
               onAdvance={scrollToBottom}
               onResolve={(result) => {
                 setBooking(result)

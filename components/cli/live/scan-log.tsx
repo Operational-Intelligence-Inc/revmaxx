@@ -78,7 +78,7 @@ function Recommendation() {
       </ol>
       <p className="text-pretty">
         {
-          "Since you want to see what users are actually doing (funnels, retention, replays), PostHog fits best. If you only need page views and Web Vitals, Vercel Web Analytics is the lighter choice."
+          'To understand what users do in your signup and checkout flows (funnels, retention, replays), PostHog fits best. If you only need page views and Web Vitals, Vercel Web Analytics is the lighter choice. These picks come from your project alone, and none of them are sponsored.'
         }
       </p>
     </Bullet>

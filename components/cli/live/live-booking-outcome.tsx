@@ -11,11 +11,15 @@ export function LiveBookingOutcome({ result }: { result: BookingResult }) {
   }
 
   const { slot, answers } = result
+  const contextShared = answers.context?.startsWith('Yes') ?? false
+  const prepNote = contextShared
+    ? `Jordan has your project summary and will come prepared on "${answers.focus.toLowerCase()}".`
+    : `Jordan will come prepared on "${answers.focus.toLowerCase()}".`
   return (
     <div className="flex flex-col gap-5">
       <ToolCall
         name="posthog - book_intro_call (MCP)"
-        args={`rep: "jordan.lee", slot: "${slot}"`}
+        args={`rep: "jordan.lee", slot: "${slot}"${contextShared ? ', context: "project summary"' : ''}`}
         result={
           <p>
             <span className="text-sponsor">Booked</span>
@@ -30,7 +34,7 @@ export function LiveBookingOutcome({ result }: { result: BookingResult }) {
       />
       <Bullet>
         <p className="text-pretty">
-          {`You're booked with Jordan for ${slot}. The invite is on your calendar and Jordan will come prepared on "${answers.focus.toLowerCase()}". I'm still finishing the PostHog setup in the background.`}
+          {`You're booked with Jordan for ${slot}. The invite is on your calendar. ${prepNote} I'm still finishing the PostHog setup in the background.`}
         </p>
       </Bullet>
     </div>

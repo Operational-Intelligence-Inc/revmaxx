@@ -53,6 +53,24 @@ const QUESTIONS: Question[] = [
   },
 ]
 
+const CONTEXT_QUESTION: Question = {
+  id: 'context',
+  kind: 'select',
+  tab: 'Context',
+  question: 'Share a project summary with Jordan so he can come prepared?',
+  options: [
+    { label: 'Yes, share a project summary', description: 'Stack and goals only. No source code.' },
+    { label: 'No, just the call details' },
+  ],
+}
+
+const SHARED_CONTEXT = [
+  'Next.js 16 App Router, deployed on Vercel',
+  'No analytics installed yet',
+  'Key flows to measure: signup and checkout',
+  'Compared 4 analytics tools and chose PostHog',
+]
+
 const OFFER_OPTIONS: Option[] = [
   {
     label: 'Yes, find a time',
@@ -68,11 +86,14 @@ export function BookingForm({
   onResolve,
   onAdvance,
   offerOptions = OFFER_OPTIONS,
+  shareContext = false,
 }: {
   onResolve: (result: BookingResult) => void
   onAdvance: () => void
   offerOptions?: Option[]
+  shareContext?: boolean
 }) {
+  const questions = shareContext ? [...QUESTIONS, CONTEXT_QUESTION] : QUESTIONS
   const [phase, setPhase] = useState<Phase>('offer')
   const [lookupStep, setLookupStep] = useState(0)
   const [slotIndex, setSlotIndex] = useState<number | null>(null)
@@ -94,9 +115,10 @@ export function BookingForm({
   }, [phase, lookupStep, onAdvance])
 
   const slot = slotIndex === null ? null : MUTUAL_SLOTS[slotIndex]
-  const tabs = ['Time', ...QUESTIONS.map((q) => q.tab), 'Confirm']
+  const tabs = ['Time', ...questions.map((q) => q.tab), 'Confirm']
   const currentTab = phase === 'slot' ? 0 : phase === 'questions' ? step + 1 : -1
-  const isReview = phase === 'questions' && step === QUESTIONS.length
+  const isReview = phase === 'questions' && step === questions.length
+  const contextShared = answers.context?.startsWith('Yes') ?? false
 
   function answer(id: string, value: string) {
     setAnswers((prev) => ({ ...prev, [id]: value }))
@@ -234,10 +256,10 @@ export function BookingForm({
 
           {phase === 'questions' && slot && !isReview && (
             <QuestionStep
-              key={QUESTIONS[step].id}
-              question={QUESTIONS[step]}
-              value={answers[QUESTIONS[step].id]}
-              onAnswer={(v) => answer(QUESTIONS[step].id, v)}
+              key={questions[step].id}
+              question={questions[step]}
+              value={answers[questions[step].id]}
+              onAnswer={(v) => answer(questions[step].id, v)}
               onEscape={back}
             />
           )}
@@ -254,15 +276,32 @@ export function BookingForm({
                   <dt className="w-[10ch] shrink-0 text-terminal-muted">With</dt>
                   <dd className="min-w-0">Jordan Lee, PostHog</dd>
                 </div>
-                {QUESTIONS.map((q) => (
+                {questions.map((q) => (
                   <div key={q.id} className="flex">
                     <dt className="w-[10ch] shrink-0 text-terminal-muted">{q.tab}</dt>
                     <dd className="min-w-0 break-words">{answers[q.id]}</dd>
                   </div>
                 ))}
               </dl>
+              {contextShared && (
+                <div className="flex flex-col">
+                  <p className="text-terminal-muted">Project summary Jordan will receive:</p>
+                  <ul className="flex flex-col">
+                    {SHARED_CONTEXT.map((line) => (
+                      <li key={line} className="flex">
+                        <span aria-hidden="true" className="w-[3ch] shrink-0 text-terminal-muted">
+                          -
+                        </span>
+                        <span className="min-w-0">{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <p className="text-pretty text-terminal-muted">
-                Only these answers are shared with PostHog. Your calendar contents and codebase are not.
+                {contextShared
+                  ? 'Only these answers and the summary above are shared with PostHog. Your calendar contents and source code are not.'
+                  : 'Only these answers are shared with PostHog. Your calendar contents and codebase are not.'}
               </p>
               <OptionList
                 label="Book the call?"
@@ -281,7 +320,7 @@ export function BookingForm({
 
       {phase !== 'lookup' && (
         <p className="text-terminal-muted">
-          {phase === 'questions' && !isReview && QUESTIONS[step].kind === 'text'
+          {phase === 'questions' && !isReview && questions[step].kind === 'text'
             ? 'Enter to confirm · Esc to go back'
             : 'Enter to select · ↑/↓ to navigate · Esc to go back'}
         </p>
