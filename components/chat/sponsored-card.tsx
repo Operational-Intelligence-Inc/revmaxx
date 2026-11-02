@@ -141,8 +141,10 @@ export function SponsoredCard() {
           <ShieldCheck className="size-5" />
         </span>
         <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-          <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-            Sponsored · RateHarbor
+          <span className="flex flex-wrap items-center gap-x-1.5 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+            <span>Sponsored · RateHarbor</span>
+            <span aria-hidden="true">·</span>
+            <span className="text-foreground">Powered by RevMaxx</span>
           </span>
           <p className="text-sm font-medium text-card-foreground text-pretty">
             Compare full-coverage rates from 30+ insurers in your area
