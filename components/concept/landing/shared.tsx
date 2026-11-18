@@ -13,7 +13,7 @@ export const TEAM = [
     bio: 'Eight years at Quora, led the Poe core product team. Has lived the AI margin problem first-hand.',
   },
   {
-    name: 'Ju',
+    name: 'Justin',
     role: 'Advertiser demand',
     bio: 'Runs an 8-figure performance-marketing and lead-gen business.',
   },
