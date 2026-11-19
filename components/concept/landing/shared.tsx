@@ -5,12 +5,12 @@ export const TEAM = [
   {
     name: 'Sean',
     role: 'Ads infrastructure',
-    bio: 'Built ad serving, measurement and conversion systems at a FAANG company and a major Q&A platform.',
+    bio: 'Built ad serving, measurement and conversion systems at a FAANG company and a top content network.',
   },
   {
     name: 'Julia',
     role: 'AI product',
-    bio: 'Eight years at a major Q&A platform, then led the core product team of a leading consumer AI chat app. Has lived the AI margin problem first-hand.',
+    bio: 'Eight years at a top content network, then led the core product team of a leading consumer AI chat app. Has lived the AI margin problem first-hand.',
   },
   {
     name: 'Justin',
