@@ -5,12 +5,12 @@ export const TEAM = [
   {
     name: 'Sean',
     role: 'Ads infrastructure',
-    bio: 'Built ad serving, measurement and conversion systems at Google and Quora.',
+    bio: 'Built ad serving, measurement and conversion systems at a global search giant and a major Q&A platform.',
   },
   {
     name: 'Julia',
     role: 'AI product',
-    bio: 'Eight years at Quora, led the Poe core product team. Has lived the AI margin problem first-hand.',
+    bio: 'Eight years at a major Q&A platform, then led the core product team of a leading consumer AI chat app. Has lived the AI margin problem first-hand.',
   },
   {
     name: 'Justin',
