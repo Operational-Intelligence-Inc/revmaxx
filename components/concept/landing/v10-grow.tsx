@@ -280,9 +280,13 @@ function Team() {
       <div className="grid gap-4 md:grid-cols-3">
         {TEAM.map((m) => (
           <div key={m.name} className="flex flex-col gap-6 rounded-[1.5rem] border border-border p-6">
-            <span className="flex size-14 items-center justify-center rounded-full bg-muted font-serif text-2xl font-black">
-              {m.name[0]}
-            </span>
+            <Image
+              src={m.avatar}
+              alt={`${m.name}, ${m.role}`}
+              width={96}
+              height={96}
+              className="size-24 rounded-full bg-muted object-cover"
+            />
             <div className="flex flex-col gap-1">
               <h3 className="text-2xl font-medium">{m.name}</h3>
               <p className="text-sm font-medium text-pop">{m.role}</p>

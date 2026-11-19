@@ -4,16 +4,19 @@ import { cn } from '@/lib/utils'
 export const TEAM = [
   {
     name: 'Sean',
+    avatar: '/team/sean.png',
     role: 'Ads infrastructure',
-    bio: 'Built ad serving, measurement and conversion systems at Google and Quora.',
+    bio: 'Built ad serving, measurement and conversion systems at a FAANG company and a top content network.',
   },
   {
     name: 'Julia',
+    avatar: '/team/julia.png',
     role: 'AI product',
-    bio: 'Eight years at Quora, led the Poe core product team. Has lived the AI margin problem first-hand.',
+    bio: 'Eight years at a top content network, then led the core product team of a leading consumer AI chat app. Has lived the AI margin problem first-hand.',
   },
   {
     name: 'Justin',
+    avatar: '/team/justin.png',
     role: 'Advertiser demand',
     bio: 'Runs an 8-figure performance-marketing and lead-gen business.',
   },
