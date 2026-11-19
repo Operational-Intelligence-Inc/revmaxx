@@ -5,7 +5,7 @@ export const TEAM = [
   {
     name: 'Sean',
     role: 'Ads infrastructure',
-    bio: 'Built ad serving, measurement and conversion systems at a global search giant and a major Q&A platform.',
+    bio: 'Built ad serving, measurement and conversion systems at a FAANG company and a major Q&A platform.',
   },
   {
     name: 'Julia',
