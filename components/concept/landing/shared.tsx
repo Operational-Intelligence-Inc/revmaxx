@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 
 export const TEAM = [
   {
-    name: 'Patrick',
+    name: 'Sean',
     role: 'Ads infrastructure',
     bio: 'Built ad serving, measurement and conversion systems at Google and Quora.',
   },
